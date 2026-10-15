@@ -18,6 +18,7 @@ const images = {
   leaf2: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/leaf2-n7E88XeSf02gTsxHgCUulAPf4pTBw4.png',
   leaf3: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/leaf3-xuDwFP30iUf4UV0Zr2cU2ovu0gAnHl.png',
   plant: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/plant-8b69QAH4tZ6gd0dkOevet7B9cdYHnh.png',
+  botanical: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ayurveda_page_bg-YiHo4GEazPeuXXi6e80TuqCVwEU0Le.png',
 }
 
 const services = ['Online & in-clinic consultations', 'Personalized Prakriti analysis', 'Panchakarma procedures', 'Abhyanga massage therapy', 'Nadi Swedana & Basti therapies', 'Shirodhara & Uttara Basti', 'Personalized medicines delivered across India', 'Ayurvedic diet & lifestyle guidance']
@@ -70,21 +71,15 @@ export default function Page() {
       </header>
 
       <main id="top">
-        <section className="hero">
+        <section className="hero reference-hero">
           <div className="hero-bg"></div>
-          <img className="floating-leaf hero-leaf leaf-a" src={images.leaf1} alt="Floating botanical leaf" />
-          <img className="floating-leaf hero-leaf leaf-b" src={images.leaf2} alt="Floating botanical leaf" />
-          <img className="floating-leaf hero-leaf leaf-c" src={images.leaf3} alt="Floating botanical leaf" />
-          <img className="floating-leaf hero-leaf leaf-d" src={images.leaf1} alt="Floating botanical leaf" />
-          <img className="floating-leaf hero-leaf leaf-e" src={images.leaf2} alt="Floating botanical leaf" />
-          <div className="hero-content">
-            <p className="eyebrow hero-kicker"><Sparkles size={15} /> Ancient wisdom. Personal care.</p>
-            <h1 className="hero-title"><span className="line">Return to your</span><span className="line accent-text">natural rhythm.</span></h1>
-            <p className="hero-copy">Personalized Ayurvedic care that heals the body, calms the mind, and restores balance — rooted in the timeless wisdom of Charaka Samhita.</p>
-            <div className="hero-cta"><a className="button button-dark" href="#contact">Begin your healing journey <ArrowUpRight size={18} /></a><a className="text-link" href="#story"><span className="play-icon"><Play size={11} fill="currentColor" /></span> Discover our approach</a></div>
-          </div>
-          <div className="hero-visual"><div className="hero-photo"><img src={images.hero} alt="Warm Ayurvedic treatment room with candles and folded towels" /></div><div className="orbit orbit-one">100%<br /><small>personalized</small></div><div className="orbit orbit-two">आयुर्वेद</div></div>
-          <div className="scroll-cue"><ArrowDown size={16} /> Scroll to explore</div>
+          <div className="hero-leaves" aria-hidden="true"><img className="hero-leaf leaf-a" src={images.leaf1} alt="" /><img className="hero-leaf leaf-b" src={images.leaf2} alt="" /><img className="hero-leaf leaf-c" src={images.leaf3} alt="" /><img className="hero-leaf leaf-d" src={images.leaf1} alt="" /><img className="hero-leaf leaf-e" src={images.leaf2} alt="" /></div>
+          <header className="reference-nav"><nav><a href="#story">Story</a><a href="#services">Treatments</a><a href="#services">Products</a></nav><a className="reference-logo" href="#top">Healing Pines<small>Authentic Ayurveda</small></a><nav><a href="#faq">FAQs</a><a href="#conditions">Conditions</a><a href="#contact">Contact</a></nav><a className="reference-book button" href="#contact">Book Appointment <ArrowUpRight size={16} /></a><button className="reference-menu" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen ? <X /> : <Menu />}</button></header>
+          {menuOpen && <nav className="reference-mobile-menu"><a href="#story" onClick={() => setMenuOpen(false)}>Story</a><a href="#services" onClick={() => setMenuOpen(false)}>Treatments</a><a href="#faq" onClick={() => setMenuOpen(false)}>FAQs</a><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></nav>}
+          <div className="reference-arch arch-center"><div className="reference-brand">Healing Pines<small>Authentic Ayurveda</small></div><img src={images.botanical} alt="Ayurvedic herbs, flowers, and oils" /></div>
+          <div className="reference-arch arch-left"><img src={images.hand} alt="Hands receiving an Ayurvedic oil treatment" /></div><div className="reference-arch arch-right"><img src={images.hero} alt="Calming Ayurvedic treatment ritual" /></div><div className="reference-arch arch-bottom-one"><img src={images.oils} alt="Ayurvedic oils and herbs" /></div><div className="reference-arch arch-bottom-two"><img src={images.spices} alt="Traditional Ayurvedic herbs" /></div>
+          <p className="reference-vertical vertical-left">Natural Balance Ayurveda</p><p className="reference-vertical vertical-right">Wellness Rooted in Tradition</p>
+          <div className="reference-intro"><p className="eyebrow hero-kicker"><Sparkles size={14} /> Authentic, individualized care</p><h1 className="hero-title"><span className="line">Return to your</span><span className="line accent-text">natural rhythm.</span></h1><p>Rooted in classical Ayurvedic principles, our Vaidyas deliver personalized care that heals the body, calms the mind, and restores balance.</p><a className="button button-dark" href="#contact">Book your consultation <ArrowUpRight size={17} /></a></div>
         </section>
 
         <div className="marquee"><div className="marquee-track">AUTHENTIC AYURVEDA <span>✦</span> INDIVIDUALIZED CARE <span>✦</span> NERVOUS SYSTEM RESTORATION <span>✦</span> AUTHENTIC AYURVEDA <span>✦</span> INDIVIDUALIZED CARE <span>✦</span></div></div>
@@ -99,6 +94,8 @@ export default function Page() {
         <section className="dark-band" id="conditions"><div className="herbs-wrap reveal"><img src={images.oils} alt="Ayurvedic herbs and oils" /></div><div className="conditions-copy reveal"><p className="eyebrow light">03 / Areas of care</p><h2>Listen to what your body is <em>saying.</em></h2><p>Our approach is rooted in individualized consultation, traditional principles, personalized treatment planning, and ongoing guidance.</p><div className="condition-list">{conditions.map((condition) => <div key={condition}><Check size={15} />{condition}</div>)}</div><a className="button button-light" href="#contact">Find your balance <ArrowUpRight size={18} /></a></div></section>
 
         <section className="ritual section-pad"><div className="ritual-copy reveal"><p className="eyebrow">04 / The Healing Pines ritual</p><h2>Small rituals.<br /><em>Lasting change.</em></h2><p>Ayurveda is not a quick fix. It is a return — to the wisdom already held within your body. We give you practical, compassionate ways to make that return every day.</p><a className="text-link dark-link" href="#contact">Meet your Vaidya <ArrowUpRight size={16} /></a></div><div className="ritual-image reveal"><img src={images.spices} alt="Traditional herbs being prepared in a stone mortar" /><div className="stamp">SINCE<br /><strong>2012</strong><br />AUTHENTIC CARE</div></div></section>
+
+        <section className="faq section-pad" id="faq"><div className="section-heading reveal"><div><p className="eyebrow">05 / Before you begin</p><h2>Questions, <em>answered.</em></h2></div><p>Everything you need to know before your first visit or online consultation.</p></div><div className="faq-grid"><details><summary>Where are you located?</summary><p>Healing Pines Ayurveda is in Yol Cantt, Dharamshala, Himachal Pradesh. Prior booking is mandatory and appointments are free to book.</p></details><details><summary>Do you offer online consultations?</summary><p>Yes. Audio and video consultations are available across India, including support for long-standing and chronic concerns.</p></details><details><summary>Can medicines be delivered to my home?</summary><p>Yes. Prescribed Ayurvedic medicines can be delivered across India, usually within 5–10 days. Medicines are charged separately.</p></details><details><summary>What are the consultation charges?</summary><p>In-person consultations are ₹499 and online consultations are ₹299, inclusive of taxes. Please bring previous medical records.</p></details></div></section>
 
         <section className="contact" id="contact"><div className="contact-inner reveal"><p className="eyebrow light">Your next chapter starts here</p><h2>Feel at home<br /><em>in your body.</em></h2><p>Book a consultation with our Vaidyas and take the first step towards a more balanced you.</p><a className="button button-light" href="mailto:hello@healingpinesayurveda.com">Book a consultation <ArrowUpRight size={18} /></a></div><img src={images.hero} alt="" className="contact-bg" /></section>
       </main>
