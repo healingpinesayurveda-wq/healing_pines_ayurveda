@@ -30,6 +30,7 @@ export default function Page() {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
+      gsap.from('.reference-nav a, .reference-nav button', { y: -18, opacity: 0, stagger: 0.08, duration: 0.8, ease: 'power3.out', delay: 0.15 })
       const intro = gsap.timeline({ defaults: { ease: 'power3.out' } })
       intro.from('.nav-item', { y: -20, opacity: 0, stagger: 0.06, duration: 0.7 })
         .from('.hero-kicker', { opacity: 0, y: 20, duration: 0.7 }, '-=0.35')
@@ -58,26 +59,14 @@ export default function Page() {
 
   return (
     <div ref={root} className="site-shell">
-      <header className="site-nav">
-        <a href="#top" className="brand nav-item"><span className="brand-mark">✦</span><span>Healing Pines<small>AYURVEDA CLINIC</small></span></a>
-        <nav className={menuOpen ? 'nav-links is-open' : 'nav-links'}>
-          <a className="nav-item" href="#story" onClick={() => setMenuOpen(false)}>Our story</a>
-          <a className="nav-item" href="#services" onClick={() => setMenuOpen(false)}>Services</a>
-          <a className="nav-item" href="#conditions" onClick={() => setMenuOpen(false)}>Conditions</a>
-          <a className="nav-item" href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
-        </nav>
-        <a className="nav-cta nav-item" href="#contact">Book a consultation <ArrowUpRight size={16} /></a>
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">{menuOpen ? <X /> : <Menu />}</button>
-      </header>
-
       <main id="top">
         <section className="hero reference-hero">
           <div className="hero-bg"></div>
           <div className="hero-leaves" aria-hidden="true"><img className="hero-leaf leaf-a" src={images.leaf1} alt="" /><img className="hero-leaf leaf-b" src={images.leaf2} alt="" /><img className="hero-leaf leaf-c" src={images.leaf3} alt="" /><img className="hero-leaf leaf-d" src={images.leaf1} alt="" /><img className="hero-leaf leaf-e" src={images.leaf2} alt="" /></div>
           <header className="reference-nav"><nav><a href="#story">Story</a><a href="#services">Treatments</a><a href="#services">Products</a></nav><a className="reference-logo" href="#top">Healing Pines<small>Authentic Ayurveda</small></a><nav><a href="#faq">FAQs</a><a href="#conditions">Conditions</a><a href="#contact">Contact</a></nav><a className="reference-book button" href="#contact">Book Appointment <ArrowUpRight size={16} /></a><button className="reference-menu" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen ? <X /> : <Menu />}</button></header>
           {menuOpen && <nav className="reference-mobile-menu"><a href="#story" onClick={() => setMenuOpen(false)}>Story</a><a href="#services" onClick={() => setMenuOpen(false)}>Treatments</a><a href="#faq" onClick={() => setMenuOpen(false)}>FAQs</a><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></nav>}
-          <div className="reference-arch arch-center"><div className="reference-brand">Healing Pines<small>Authentic Ayurveda</small></div><img src={images.botanical} alt="Ayurvedic herbs, flowers, and oils" /></div>
-          <div className="reference-arch arch-left"><img src={images.hand} alt="Hands receiving an Ayurvedic oil treatment" /></div><div className="reference-arch arch-right"><img src={images.hero} alt="Calming Ayurvedic treatment ritual" /></div><div className="reference-arch arch-bottom-one"><img src={images.oils} alt="Ayurvedic oils and herbs" /></div><div className="reference-arch arch-bottom-two"><img src={images.spices} alt="Traditional Ayurvedic herbs" /></div>
+          <div className="reference-arch arch-center"><img src={images.botanical} alt="Ayurvedic herbs, flowers, and oils" /></div>
+          <div className="reference-arch arch-left"><img src={images.hand} alt="Hands receiving an Ayurvedic oil treatment" /></div><div className="reference-arch arch-right"><img src={images.hero} alt="Calming Ayurvedic treatment ritual" /></div>
           <p className="reference-vertical vertical-left">Natural Balance Ayurveda</p><p className="reference-vertical vertical-right">Wellness Rooted in Tradition</p>
           <div className="reference-intro"><p className="eyebrow hero-kicker"><Sparkles size={14} /> Authentic, individualized care</p><h1 className="hero-title"><span className="line">Return to your</span><span className="line accent-text">natural rhythm.</span></h1><p>Rooted in classical Ayurvedic principles, our Vaidyas deliver personalized care that heals the body, calms the mind, and restores balance.</p><a className="button button-dark" href="#contact">Book your consultation <ArrowUpRight size={17} /></a></div>
         </section>
@@ -97,9 +86,9 @@ export default function Page() {
 
         <section className="faq section-pad" id="faq"><div className="section-heading reveal"><div><p className="eyebrow">05 / Before you begin</p><h2>Questions, <em>answered.</em></h2></div><p>Everything you need to know before your first visit or online consultation.</p></div><div className="faq-grid"><details><summary>Where are you located?</summary><p>Healing Pines Ayurveda is in Yol Cantt, Dharamshala, Himachal Pradesh. Prior booking is mandatory and appointments are free to book.</p></details><details><summary>Do you offer online consultations?</summary><p>Yes. Audio and video consultations are available across India, including support for long-standing and chronic concerns.</p></details><details><summary>Can medicines be delivered to my home?</summary><p>Yes. Prescribed Ayurvedic medicines can be delivered across India, usually within 5–10 days. Medicines are charged separately.</p></details><details><summary>What are the consultation charges?</summary><p>In-person consultations are ₹499 and online consultations are ₹299, inclusive of taxes. Please bring previous medical records.</p></details></div></section>
 
-        <section className="contact" id="contact"><div className="contact-inner reveal"><p className="eyebrow light">Your next chapter starts here</p><h2>Feel at home<br /><em>in your body.</em></h2><p>Book a consultation with our Vaidyas and take the first step towards a more balanced you.</p><a className="button button-light" href="mailto:hello@healingpinesayurveda.com">Book a consultation <ArrowUpRight size={18} /></a></div><img src={images.hero} alt="" className="contact-bg" /></section>
+        <section className="contact" id="contact"><div className="contact-inner reveal"><p className="eyebrow light">Your next chapter starts here</p><h2>Feel at home<br /><em>in your body.</em></h2><p>Book a consultation with our Vaidyas and take the first step towards a more balanced you.</p><a className="button button-light" href="mailto:healingpinesayurveda@gmail.com">Book a consultation <ArrowUpRight size={18} /></a><div className="contact-details"><a href="tel:+917018302278">+91 70183 02278</a><a href="mailto:healingpinesayurveda@gmail.com">healingpinesayurveda@gmail.com</a></div></div><img src={images.hero} alt="" className="contact-bg" /></section>
       </main>
-      <footer><a className="brand" href="#top"><span className="brand-mark">✦</span><span>Healing Pines<small>AYURVEDA CLINIC</small></span></a><p>© 2026 Healing Pines Ayurveda. Rooted in care.</p><a href="mailto:hello@healingpinesayurveda.com">hello@healingpinesayurveda.com</a></footer>
+      <footer><a className="brand" href="#top"><span className="brand-mark">✦</span><span>Healing Pines<small>AYURVEDA CLINIC</small></span></a><p>© 2026 Healing Pines Ayurveda. Rooted in care.</p><div className="footer-contact"><a href="tel:+917018302278">+91 70183 02278</a><a href="mailto:healingpinesayurveda@gmail.com">healingpinesayurveda@gmail.com</a></div></footer>
     </div>
   )
 }
