@@ -221,7 +221,7 @@ export default function Page() {
           </div>
           <div className="ritual-image reveal">
             <img src={images.spices} alt="Traditional herbs being prepared in a stone mortar" />
-            <div className="stamp">SINCE<br /><strong>2012</strong><br />AUTHENTIC CARE</div>
+            <div className="stamp">SINCE<br /><strong>2022</strong><br />AUTHENTIC CARE</div>
           </div>
         </section>
 
