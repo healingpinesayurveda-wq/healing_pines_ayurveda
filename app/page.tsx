@@ -216,7 +216,7 @@ export default function Page() {
           <div className="ritual-copy reveal">
             <p className="eyebrow">04 / The Healing Pines ritual</p>
             <h2>Small rituals.<br /><em>Lasting change.</em></h2>
-            <p>Ayurveda is not a quick fix. It is a return — to the wisdom already held within your body. We give you practical, compassionate ways to make that return every day.</p>
+            <p>Ayurveda is not a quick fix. It is a return to the wisdom already held within your body. We give you practical, compassionate ways to make that return every day.</p>
             <a className="text-link dark-link" href="#contact">Meet your Vaidya <ArrowUpRight size={16} /></a>
           </div>
           <div className="ritual-image reveal">

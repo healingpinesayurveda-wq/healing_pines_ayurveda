@@ -415,8 +415,14 @@ em { color: var(--sand); font-style: italic; }
 footer { background: #0a2018; color: var(--cream); padding: 34px 5vw; display: flex; align-items: center; justify-content: space-between; font-size: 11px; opacity: .95; font-family: 'Plus Jakarta Sans', sans-serif; }
 footer p { opacity: .65; }
 .brand { display: flex; align-items: center; gap: 10px; font-family: 'Marcellus', Georgia, serif; font-weight: 400; font-size: 22px; line-height: 1; letter-spacing: 0.02em; }
+.brand-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  border-radius: 50%;
+  display: block;
+}
 .brand small { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 8px; letter-spacing: .22em; margin-top: 6px; opacity: .8; }
-.brand-mark { color: var(--sand); font-size: 26px; }
 
 /* ─── ACCESSIBILITY ────────────────────────────────────────────── */
 :focus-visible { outline: 2px solid var(--sand); outline-offset: 4px; }
@@ -673,16 +679,23 @@ footer p { opacity: .65; }
   .stamp {
     position: absolute;
     bottom: 14px;
-    left: 14px;
-    width: 76px;
-    height: 76px;
-    padding-top: 14px;
-    font-size: 6.5px;
+    left: 8px;
+    width: 98px;
+    height: 98px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 6.8px;
+    letter-spacing: 0.1em;
+    line-height: 1.25;
     border-radius: 50%;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
   }
   .stamp strong {
-    font-size: 16px;
+    font-size: 18px;
+    margin: 2px 0;
   }
 
   .contact { min-height: 500px; padding: 65px 7vw; }
