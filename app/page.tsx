@@ -14,6 +14,10 @@ const images = {
   hand: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hand_rub-PH0B8W1Fulb3806oFoU6fl68eu9JuT.png',
   oils: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ayur_image-KeeL4R8mSESsD7v1VEdknQW41WRN8T.png',
   spices: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/spices-h8aKFiMeT8PpVm3dZ4STzWNGsmH1LQ.jpg',
+  leaf1: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/leaf1-YsSG4yFEkVgNLpEAkBVM1NbHLvNF5J.png',
+  leaf2: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/leaf2-n7E88XeSf02gTsxHgCUulAPf4pTBw4.png',
+  leaf3: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/leaf3-xuDwFP30iUf4UV0Zr2cU2ovu0gAnHl.png',
+  plant: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/plant-8b69QAH4tZ6gd0dkOevet7B9cdYHnh.png',
 }
 
 const services = ['Online & in-clinic consultations', 'Personalized Prakriti analysis', 'Panchakarma procedures', 'Abhyanga massage therapy', 'Nadi Swedana & Basti therapies', 'Shirodhara & Uttara Basti', 'Personalized medicines delivered across India', 'Ayurvedic diet & lifestyle guidance']
@@ -33,7 +37,11 @@ export default function Page() {
         .from('.hero-photo', { scale: 1.2, opacity: 0, duration: 1.5 }, '-=1')
         .from('.orbit', { scale: 0, opacity: 0, stagger: 0.1, duration: 1 }, '-=1')
 
-      gsap.to('.floating-leaf', { y: -22, rotate: 8, duration: 4, ease: 'sine.inOut', repeat: -1, yoyo: true })
+      gsap.to('.floating-leaf', { y: -22, rotate: 8, duration: 4, ease: 'sine.inOut', repeat: -1, yoyo: true, stagger: 0.45 })
+      gsap.utils.toArray<HTMLElement>('.hero-leaf').forEach((leaf, i) => {
+        gsap.from(leaf, { opacity: 0, scale: 0, rotation: i % 2 ? -35 : 35, duration: 1.2, delay: 0.45 + i * 0.12, ease: 'back.out(1.7)' })
+        gsap.to(leaf, { y: i % 2 ? -16 : 16, rotation: i % 2 ? 8 : -8, duration: 3 + i * 0.4, ease: 'sine.inOut', repeat: -1, yoyo: true, delay: i * 0.2 })
+      })
       gsap.to('.hero-photo img', { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
 
       gsap.utils.toArray<HTMLElement>('.reveal').forEach((el) => {
@@ -64,8 +72,11 @@ export default function Page() {
       <main id="top">
         <section className="hero">
           <div className="hero-bg"></div>
-          <img className="floating-leaf leaf-a" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/leaf1-YsSG4yFEkVgNLpEAkBVM1NbHLvNF5J.png" alt="Floating botanical leaf" />
-          <img className="floating-leaf leaf-b" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/leaf2-n7E88XeSf02gTsxHgCUulAPf4pTBw4.png" alt="Floating botanical leaf" />
+          <img className="floating-leaf hero-leaf leaf-a" src={images.leaf1} alt="Floating botanical leaf" />
+          <img className="floating-leaf hero-leaf leaf-b" src={images.leaf2} alt="Floating botanical leaf" />
+          <img className="floating-leaf hero-leaf leaf-c" src={images.leaf3} alt="Floating botanical leaf" />
+          <img className="floating-leaf hero-leaf leaf-d" src={images.leaf1} alt="Floating botanical leaf" />
+          <img className="floating-leaf hero-leaf leaf-e" src={images.leaf2} alt="Floating botanical leaf" />
           <div className="hero-content">
             <p className="eyebrow hero-kicker"><Sparkles size={15} /> Ancient wisdom. Personal care.</p>
             <h1 className="hero-title"><span className="line">Return to your</span><span className="line accent-text">natural rhythm.</span></h1>
