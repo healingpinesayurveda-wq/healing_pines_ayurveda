@@ -10,8 +10,9 @@ gsap.registerPlugin(ScrollTrigger)
 
 const images = {
   logo: '/images/logo_pines.png',
+  center_img: '/images/center_img_nw.png',
   hero: '/images/hero.jpg',
-  herbs: '/images/herbs.png',
+  herbs: '/images/center_img_nw.png',
   hand: '/images/hand.jpg',
   oils: '/images/oils.png',
   spices: '/images/spices.jpg',
@@ -19,7 +20,7 @@ const images = {
   leaf2: '/images/leaf2.png',
   leaf3: '/images/leaf3.png',
   plant: '/images/plant.png',
-  botanical: '/images/botanical.png',
+  botanical: '/images/center_img_nw.png',
 }
 
 const services = ['Online & in-clinic consultations', 'Personalized Prakriti analysis', 'Panchakarma procedures', 'Abhyanga massage therapy', 'Nadi Swedana & Basti therapies', 'Shirodhara & Uttara Basti', 'Personalized medicines delivered across India', 'Ayurvedic diet & lifestyle guidance']
@@ -135,7 +136,7 @@ export default function Page() {
 
           {/* Three arched images */}
           <div className="reference-arch arch-center">
-            <img src={images.botanical} alt="Ayurvedic herbs, flowers, and oils" />
+            <img src={images.center_img} alt="Healing Pines Ayurveda natural herbs and remedies" />
             {/* Brand name centered on top of the arch image */}
             <div className="arch-brand-overlay">
               {/* <span className="brand-name">Healing Pines</span> */}
