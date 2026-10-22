@@ -35,9 +35,10 @@ export default function Page() {
       const intro = gsap.timeline({ defaults: { ease: 'power3.out' } })
       intro
         .from('.nav-side a, .nav-cta-link', { opacity: 0, y: -12, stagger: 0.05, duration: 0.6, clearProps: 'all' }, 0.2)
-        .from('.hero-kicker', { opacity: 0, y: 20, duration: 0.7 }, 0.4)
-        .from('.hero-title .line', { yPercent: 110, opacity: 0, stagger: 0.1, duration: 1.1 }, '-=0.35')
-        .from('.hero-copy, .hero-cta', { opacity: 0, y: 24, stagger: 0.12, duration: 0.8 }, '-=0.5')
+        .from('.hero-kicker', { opacity: 0, y: 20, duration: 0.7, clearProps: 'all' }, 0.4)
+        .from('.hero-title .line', { yPercent: 110, opacity: 0, stagger: 0.1, duration: 1.1, clearProps: 'all' }, '-=0.35')
+        .from('.hero-copy', { opacity: 0, y: 24, duration: 0.8, clearProps: 'all' }, '-=0.5')
+        .from('.hero-cta', { opacity: 0, y: 22, scale: 0.96, duration: 0.8, ease: 'back.out(1.4)', clearProps: 'all' }, '-=0.45')
         .from('.arch-center', { scale: 0.92, opacity: 0, duration: 1.4 }, 0)
         .from('.arch-left', { x: -60, opacity: 0, duration: 1.2 }, 0.15)
         .from('.arch-right', { x: 60, opacity: 0, duration: 1.2 }, 0.15)
@@ -50,7 +51,14 @@ export default function Page() {
 
       // Scroll reveals
       gsap.utils.toArray<HTMLElement>('.reveal').forEach((el) => {
-        gsap.from(el, { y: 60, opacity: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 82%' } })
+        gsap.from(el, {
+          y: 60,
+          opacity: 0,
+          duration: 1,
+          ease: 'power3.out',
+          clearProps: 'transform,opacity',
+          scrollTrigger: { trigger: el, start: 'top 82%' }
+        })
       })
       gsap.utils.toArray<HTMLElement>('.service-card').forEach((el, i) => {
         gsap.from(el, { y: 50, opacity: 0, rotate: i % 2 ? 2 : -2, duration: 0.8, delay: i * 0.05, scrollTrigger: { trigger: '.services-grid', start: 'top 78%' } })
