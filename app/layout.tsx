@@ -31,6 +31,11 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/png" href="/images/logo_pines.png" />
         <link rel="apple-touch-icon" href="/images/logo_pines.png" />
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="83f6dfa8-6125-4202-8fb0-83d27f3ad15b"
+        />
       </head>
       <body className="antialiased">
         {children}
